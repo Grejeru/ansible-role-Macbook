@@ -1,0 +1,6 @@
+---
+- name: kill Finder
+  command: killall Finder
+
+- name: kill SystemUIServer
+  command: killall SystemUIServer

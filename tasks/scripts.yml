@@ -1,0 +1,16 @@
+---
+- name: ensure bin directory exists
+  file:
+    path: "{{ macbook_home }}/bin"
+    state: directory
+    owner: "{{ macbook_user }}"
+    group: "{{ macbook_group }}"
+    mode: 0755
+
+- name: osx
+  copy:
+    src: "scripts/osx"
+    dest: "{{ macbook_home }}/bin/osx"
+    owner: "{{ macbook_user }}"
+    group: "{{ macbook_group }}"
+    mode: 0755

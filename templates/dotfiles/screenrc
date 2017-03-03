@@ -1,0 +1,18 @@
+### --- {{ ansible_managed }} --- ###
+
+autodetach on
+startup_message off
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
+defhstatus "screen: ^En (^Et)"
+
+hardstatus alwayslastline
+hardstatus string '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[ %m/%d %c ]%{W}'
+
+defutf8 on
+encoding UTF-8
+defencoding UTF-8
+
+defscrollback 100000
+shelltitle "$ |bash"
+termcapinfo xterm ti@:te@

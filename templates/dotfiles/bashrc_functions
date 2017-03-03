@@ -1,0 +1,60 @@
+### --- {{ ansible_managed }} --- ###
+
+function hideallfiles()
+{
+  defaults write com.apple.finder AppleShowAllFiles -bool NO
+  killall Finder
+}
+
+function showallfiles()
+{
+  defaults write com.apple.finder AppleShowAllFiles -bool YES
+  killall Finder
+}
+
+function clean_dsstore()
+{
+  find ~ -name .DS_Store -delete
+  killall Finder
+}
+
+function dnsflush()
+{
+  dscacheutil -flushcache
+  sudo killall -HUP mDNSResponder
+}
+
+function genpasswd()
+{
+  local l=$1
+  [ "$l" == "" ] && l=20
+  LC_ALL=C tr -dc A-Za-z0-9_!@$%^., < /dev/urandom | head -c ${l} | xargs
+}
+
+function simpass()
+{
+  local l=$1
+  [ "$l" == "" ] && l=20
+  LC_ALL=C tr -dc A-Za-z0-9 < /dev/urandom | head -c $l | xargs
+}
+
+function simhash()
+{
+  local l=$1
+  [ "$l" == "" ] && l=20
+  LC_ALL=C tr -dc A-Fa-f0-9 < /dev/urandom | head -c $l | xargs
+}
+
+function srv()
+{
+  if [[ $1 == "trakt" ]]; then
+    case "$2" in
+      "start")
+        launchctl load -w ~/Library/LaunchAgents/org.TraktForVLC.plist
+        ;;
+      "stop")
+        launchctl unload ~/Library/LaunchAgents/org.TraktForVLC.plist
+        ;;
+    esac
+  fi
+}

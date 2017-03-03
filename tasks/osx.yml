@@ -1,0 +1,123 @@
+---
+- name: Disable Menu bar transparency
+  osx_defaults:
+    domain: "NSGlobalDomain"
+    key: "AppleEnableMenuBarTransparency"
+    type: bool
+    value: false
+    state: present
+
+- name: Disable smart dashes as they're annoying when typing code
+  osx_defaults:
+    domain: "NSGlobalDomain"
+    key: "NSAutomaticDashSubstitutionEnabled"
+    type: bool
+    value: false
+    state: present
+
+- name: Disable smart quotes as they're annoying when typing code
+  osx_defaults:
+    domain: "NSGlobalDomain"
+    key: "NSAutomaticQuoteSubstitutionEnabled"
+    type: bool
+    value: false
+    state: present
+
+- name: Expand save panel by default
+  osx_defaults:
+    domain: "NSGlobalDomain"
+    key: "NSNavPanelExpandedStateForSaveMode"
+    type: bool
+    value: true
+    state: present
+
+- name: Expand save panel by default (2)
+  osx_defaults:
+    domain: "NSGlobalDomain"
+    key: "NSNavPanelExpandedStateForSaveMode2"
+    type: bool
+    value: true
+    state: present
+
+- name: Expand print panel by default
+  osx_defaults:
+    domain: "NSGlobalDomain"
+    key: "PMPrintingExpandedStateForPrint"
+    type: bool
+    value: true
+    state: present
+
+- name: Disable subpixel font rendering on non-Apple LCDs
+  osx_defaults:
+    domain: "NSGlobalDomain"
+    key: "AppleFontSmoothing"
+    state: absent
+
+- name: Avoid creating .DS_Store files on network volumes
+  osx_defaults:
+    domain: "com.apple.desktopservices"
+    key: "DSDontWriteNetworkStores"
+    type: bool
+    value: true
+    state: present
+
+- name: Dont automatically rearrange Spaces based on most recent use
+  osx_defaults:
+    domain: "com.apple.dock"
+    key: "mru-spaces"
+    type: bool
+    value: false
+    state: present
+
+- name: Finder disable window animations and Get Info animations
+  osx_defaults:
+    domain: "com.apple.finder"
+    key: "DisableAllAnimations"
+    type: bool
+    value: true
+    state: present
+  notify:
+    - kill Finder
+
+# Stopped working on MacOS Sierra
+# - name: Open everything in Finder's list view
+#   osx_defaults:
+#     domain: "com.apple.finder"
+#     key: "FXPreferredViewStyle"
+#     type: string
+#     value: "Nlsv"
+#     state: present
+#   notify:
+#     - kill Finder
+
+- name: Disable dialog - Are you sure you want to open this application?
+  osx_defaults:
+    domain: "com.apple.LaunchServices"
+    key: "LSQuarantine"
+    type: bool
+    value: true
+    state: present
+
+- name: Require password immediately after sleep or screen saver begins
+  osx_defaults:
+    domain: "com.apple.screensaver"
+    key: "askForPassword"
+    type: integer
+    value: "1"
+    state: present
+
+- name: Require password immediately after sleep or screen saver begins (2)
+  osx_defaults:
+    domain: "com.apple.screensaver"
+    key: "askForPasswordDelay"
+    type: integer
+    value: "0"
+    state: present
+
+- name: Disable Dictionary results
+  osx_defaults:
+    domain: "com.apple.spotlight"
+    key: "DictionaryLookupEnabled"
+    type: bool
+    value: false
+    state: present

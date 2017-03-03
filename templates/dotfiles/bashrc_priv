@@ -1,0 +1,45 @@
+### --- {{ ansible_managed }} --- ###
+
+export SHELL_SESSION_HISTORY=0
+export HOMEBREW_GITHUB_API_TOKEN='{{ homebrew_github_api_token }}'
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+## OS X
+alias xcode='open -a xcode'
+alias preview='open -a Preview'
+alias vlc='open -a VLC'
+alias stfu="osascript -e 'set volume output muted true'"
+alias speak="osascript -e 'set volume 2'"
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias df='df -P -kHl'
+alias pogoda='curl wttr.in/wroclaw'
+
+alias scanimage='scanimage --format tiff --resolution 100'
+alias virtualenv-2.7='virtualenv -p python2.7'
+alias dnsreload='/usr/local/sbin/unbound-control reload'
+alias supervisorctl='supervisorctl -c /usr/local/etc/supervisor/supervisord.conf'
+
+# lastpass
+alias lpassget='lpass show --password'
+
+# virtualenvwrapper
+gpip(){
+   PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+export PIP_REQUIRE_VIRTUALENV=true
+export PROJECT_HOME="$HOME/Documents/Repos/Projects"
+export WORKON_HOME="$HOME/.virtualenvs"
+export PYENV_VIRTUALENVWRAPPER_PYENV_VERSION="system"
+export VIRTUALENVWRAPPER_LOG_DIR="$HOME/.virtualenvs"
+export VIRTUALENVWRAPPER_HOOK_DIR="$HOME/.virtualenvs"
+export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python"
+export VIRTUALENVWRAPPER_VIRTUALENV="/usr/local/bin/virtualenv"
+export VIRTUALENVWRAPPER_VIRTUALENV_CLONE="/usr/local/bin/virtualenv-clone"
+export VIRTUALENVWRAPPER_SCRIPT="/usr/local/bin/virtualenvwrapper.sh"
+export VIRTUALENVWRAPPER_LAZY_SCRIPT="/usr/local/bin/virtualenvwrapper_lazy.sh"
+source /usr/local/bin/virtualenvwrapper.sh
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+alias mkvenv27='mkvirtualenv -p python2.7'
+alias mkproject='mkproject -p python2.7'

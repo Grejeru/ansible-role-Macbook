@@ -1,0 +1,34 @@
+---
+- name: Dotfiles
+  template:
+    src: "dotfiles/{{ item }}"
+    dest: "{{ macbook_home }}/.{{ item }}"
+    owner: "{{ macbook_user }}"
+    group: "{{ macbook_group }}"
+    mode: 0644
+  with_items: '{{ dotfiles_list }}'
+
+- name: .ssh/config
+  template:
+    src: "dotfiles/ssh_config"
+    dest: "{{ macbook_home }}/.ssh/config"
+    owner: "{{ macbook_user }}"
+    group: "{{ macbook_group }}"
+    mode: 0644
+
+- name: Resolver directory
+  file:
+    path: "/etc/resolver"
+    state: directory
+    owner: root
+    group: wheel
+    mode: 0755
+
+- name: Resolver
+  copy:
+    src: "resolver/{{ item }}"
+    dest: "/etc/resolver/{{ item }}"
+    owner: root
+    group: wheel
+    mode: 0644
+  with_items: '{{ resolver_list }}'

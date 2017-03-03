@@ -1,0 +1,45 @@
+### --- {{ ansible_managed }} --- ###
+
+if [ -f /etc/bashrc ]; then
+  source /etc/bashrc
+fi
+
+if [ -f $HOME/.bashrc_colors ]; then
+  source $HOME/.bashrc_colors
+fi
+
+if [ -f $HOME/.bashrc_priv ]; then
+  source $HOME/.bashrc_priv
+fi
+
+if [ -f $HOME/.bashrc_functions ]; then
+  source $HOME/.bashrc_functions
+fi
+
+# Turn on autocomplete.
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  source $(brew --prefix)/etc/bash_completion
+fi
+
+# PATH/bin
+export PATH=$PATH:~/bin:/usr/local/sbin:/usr/local/opt/gnupg/libexec/gpgbin
+
+# Aliases
+## Ansible
+alias an='ansible'
+alias ap='ansible-playbook'
+alias ag='ansible-galaxy'
+alias agi='ag init -p roles/'
+## Cd
+alias cdg='cd $(git rev-parse --show-toplevel)'
+## Misc
+alias mc='mc -s'
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias mount='mount | column -t'
+alias ls='ls -hG'
+alias la='ls -a'
+alias ll='ls -al'
+alias tf='tail -F -n200'
+alias grep='grep --color'
+
+set -o vi

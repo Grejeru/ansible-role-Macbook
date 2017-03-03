@@ -1,0 +1,83 @@
+---
+dotfiles_list:
+- bashrc
+- bashrc_colors
+- bashrc_functions
+- bashrc_priv
+- gitconfig
+- screenrc
+- vimrc
+
+homebrew_cask_apps:
+- adobe-reader
+- apache-directory-studio
+- battle-net
+- cyberduck
+- dash
+- docker
+- firefox
+- google-chrome
+- iterm2
+- java
+- mattermost
+- minecraft
+- openoffice
+- osxfuse
+- owncloud
+- rocket-chat
+- royal-tsx
+- skype
+- slack
+- spotify
+- sshfs
+- steam
+- sublime-text
+- teamspeak-client
+- teamviewer
+- telegram
+- transmission-remote-gui
+- tunnelblick
+- vagrant
+- virtualbox
+- virtualbox-extension-pack
+- vlc
+- xquartz
+- yed
+
+homebrew_github_api_token: []
+
+homebrew_installed_packages:
+- awscli
+- bash
+- bash-completion
+- curl
+- docker-completion
+- ffmpeg
+- git
+- git-flow
+- gnu-tar
+- gnupg
+- htop
+- icu4c
+- midnight-commander
+- mtr
+- ncftp
+- openssl
+- openvpn
+- p7zip
+- python
+- speedtest_cli
+- ssh-copy-id
+- tcptraceroute
+- terraform
+- unrar
+- vim
+- wget
+- wine
+- youtube-dl
+
+macbook_user: Greyer
+macbook_group: staff
+
+resolver_list: []
+

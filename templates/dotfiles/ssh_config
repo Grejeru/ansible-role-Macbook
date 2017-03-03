@@ -1,0 +1,5 @@
+### --- {{ ansible_managed }} --- ###
+
+Host *
+  StrictHostKeyChecking no
+  # UserKnownHostsFile /dev/null

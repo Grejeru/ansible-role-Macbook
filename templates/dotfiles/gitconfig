@@ -1,0 +1,41 @@
+### --- {{ ansible_managed }} --- ###
+
+[filter "media"]
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
+[user]
+  name = Sebastian Szary
+  email = sebastian@szary.org
+[push]
+  default = simple
+[alias]
+  ad = add
+  ba = branch -a
+  bl = branch -l
+  br = branch
+  cb = checkout -b
+  cm = commit -m
+  co = checkout
+  df = diff
+  pu = push
+  rt = reset
+  rv = remote -v
+  st = status -sb
+  tl = tag -l
+  up = pull
+  brm = branch -d
+  cam = commit -am
+  cur = rev-parse --abbrev-ref HEAD
+  dfm = diff --stat master
+  lol = log --graph --decorate --oneline
+  prm = push origin -d
+  puo = push -u origin
+  rmc = rm --cached
+  upm = pull upstream master
+  lola = log --graph --decorate --oneline --all
+[color]
+  ui = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto

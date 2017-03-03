@@ -1,0 +1,9 @@
+---
+- include: dotfiles.yml
+  tags: dotfiles
+
+- include: osx.yml
+  tags: osx
+
+- include: scripts.yml
+  tags: scripts
