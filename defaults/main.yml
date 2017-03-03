@@ -78,6 +78,7 @@ homebrew_installed_packages:
 
 macbook_user: Greyer
 macbook_group: staff
+macbook_home: "/Users/greyer"
 
 resolver_list: []
 
